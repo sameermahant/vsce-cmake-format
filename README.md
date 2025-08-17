@@ -1,4 +1,4 @@
-# cmake-format
+# cmake-formatter
 
 Visual Studio Code extension that formats CMake files using `cmake-format`, installed via Python's `pip`. Developed with help from Microsoft Copilot.
 
@@ -15,37 +15,35 @@ This extension integrates `cmake-format` into Visual Studio Code, allowing you t
 ## Settings
 
 Configure the extension in your VS Code settings (`settings.json` or via the UI).
-All settings are prefixed with your extension ID: `intellect-ind-in.cmake-format`.
 
 | Setting | Type | Default | Description |
 |--------|------|---------|-------------|
-| `intellect-ind-in.cmake-format.executablePath` | `string` | `""` | Absolute path to the `cmake-format` executable installed via pip |
-| `intellect-ind-in.cmake-format.neededVersion` | `string` | `""` | Required version of `cmake-format` (optional) |
-| `intellect-ind-in.cmake-format.formatOnSave` | `boolean` | `false` | Automatically apply formatting when saving CMake files |
+| `cmake-formatter.executablePath` | `string`  | `""`    | Absolute path to the `cmake-format` executable installed via pip |
+| `cmake-formatter.neededVersion`  | `string`  | `""`    | Required version of `cmake-format` (optional) |
+| `cmake-formatter.formatOnSave`   | `boolean` | `false` | Automatically apply formatting when saving CMake files |
 
 ### Example Configuration
 
 ```json
-"intellect-ind-in.cmake-format.executablePath": "/usr/local/bin/cmake-format",
-"intellect-ind-in.cmake-format.neededVersion": "0.6.13",
-"intellect-ind-in.cmake-format.formatOnSave": true
+"cmake-formatter.executablePath": "/usr/local/bin/cmake-format",
+"cmake-formatter.neededVersion": "0.6.13",
+"cmake-formatter.formatOnSave": true
 ```
 
 ## Commands
 
 Use these commands from the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`):
 
-- `Apply cmake-format` – Format the current CMake file
-- `Toggle cmake-format Format on Save` – Enable or disable format-on-save
+- `cmake-formatter: Apply cmake-format` – Format the current CMake file
+- `cmake-formatter: Toggle cmake-formatter format-on-save` – Enable or disable format-on-save
 
 ## Requirements
 
 You must have `cmake-format` installed via Python pip:
-
 ```bash
-pip install cmake-format
+pip install cmakelang
 # Or
-pip install cmake-format==0.6.13
+pip install cmakelang==0.6.13
 ```
 
 To find the executable path:

@@ -7,9 +7,9 @@ import * as vscode from 'vscode';
 const execFileAsync = promisify(execFile);
 
 const extensionPublisher = 'intellect-ind-in';
-const extensionId = 'cmake-format';
+const extensionId = 'cmake-formatter';
 const extensionFullId = `${extensionPublisher}.${extensionId}`;
-const configNamespace = `${extensionPublisher}.${extensionId}`;
+const configNamespace = `${extensionId}`;
 
 let isFormatting = false;
 const formattingDocuments = new Set<string>();

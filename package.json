@@ -1,6 +1,6 @@
 {
-  "name": "cmake-format",
-  "displayName": "cmake-format",
+  "name": "cmake-formatter",
+  "displayName": "cmake-formatter",
   "description": "Visual Studio Code extension that formats CMake files using cmake-format, installed via Python's pip. Developed with help from Microsoft Copilot.",
   "version": "0.0.1",
   "publisher": "intellect-ind-in",
@@ -34,12 +34,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "cmake-format.applyCmakeFormat",
-        "title": "Apply cmake-format"
+        "command": "cmake-formatter.applyCmakeFormat",
+        "title": "cmake-formatter: Apply cmake-format"
       },
       {
-        "command": "cmake-format.toggleFormatOnSave",
-        "title": "Toggle cmake-format Format on Save"
+        "command": "cmake-formatter.toggleFormatOnSave",
+        "title": "cmake-formatter: Toggle cmake-formatter format-on-save"
       }
     ],
     "languages": [
@@ -58,14 +58,14 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "intellect-ind-in > cmake-format",
+      "title": "cmake-formatter",
       "properties": {
-        "intellect-ind-in.cmake-format.executablePath": {
+        "cmake-formatter.executablePath": {
           "type": "string",
           "default": "",
           "description": "Absolute path to the cmake-format executable installed via pip."
         },
-        "intellect-ind-in.cmake-format.arguments": {
+        "cmake-formatter.arguments": {
           "type": "array",
           "items": {
             "type": "string"
@@ -73,17 +73,17 @@
           "default": [],
           "description": "Additional command-line arguments to pass to cmake-format."
         },
-        "intellect-ind-in.cmake-format.neededVersion": {
+        "cmake-formatter.neededVersion": {
           "type": "string",
           "default": "1.0.0",
           "description": "Required cmake-format version."
         },
-        "intellect-ind-in.cmake-format.formatOnSave": {
+        "cmake-formatter.formatOnSave": {
           "type": "boolean",
           "default": false,
           "description": "Automatically apply cmake-format when saving CMake files."
         },
-        "intellect-ind-in.cmake-format.logLevel": {
+        "cmake-formatter.logLevel": {
           "type": "string",
           "default": "info",
           "enum": [
