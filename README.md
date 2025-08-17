@@ -1,71 +1,80 @@
-# vsce-cmake-format README
+# cmake-format
 
-This is the README for your extension "vsce-cmake-format". After writing up a brief description, we recommend including the following sections.
+Visual Studio Code extension that formats CMake files using `cmake-format`, installed via Python's `pip`. Developed with help from Microsoft Copilot.
+
+This extension integrates `cmake-format` into Visual Studio Code, allowing you to format `.cmake` and `CMakeLists.txt` files manually or automatically on save.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Format `.cmake` and `CMakeLists.txt` files using `cmake-format`
+- Manual formatting via Command Palette
+- Format-on-save support
+- Version check against required `cmake-format` version
+- Configurable executable path and version
 
-For example if there is an image subfolder under your extension project workspace:
+## Settings
 
-\!\[feature X\]\(images/feature-x.png\)
+Configure the extension in your VS Code settings (`settings.json` or via the UI).
+All settings are prefixed with your extension ID: `intellect-ind-in.cmake-format`.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+| Setting | Type | Default | Description |
+|--------|------|---------|-------------|
+| `intellect-ind-in.cmake-format.executablePath` | `string` | `""` | Absolute path to the `cmake-format` executable installed via pip |
+| `intellect-ind-in.cmake-format.neededVersion` | `string` | `""` | Required version of `cmake-format` (optional) |
+| `intellect-ind-in.cmake-format.formatOnSave` | `boolean` | `false` | Automatically apply formatting when saving CMake files |
+
+### Example Configuration
+
+```json
+"intellect-ind-in.cmake-format.executablePath": "/usr/local/bin/cmake-format",
+"intellect-ind-in.cmake-format.neededVersion": "0.6.13",
+"intellect-ind-in.cmake-format.formatOnSave": true
+```
+
+## Commands
+
+Use these commands from the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`):
+
+- `Apply cmake-format` – Format the current CMake file
+- `Toggle cmake-format Format on Save` – Enable or disable format-on-save
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+You must have `cmake-format` installed via Python pip:
 
-## Extension Settings
+```bash
+pip install cmake-format
+# Or
+pip install cmake-format==0.6.13
+```
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+To find the executable path:
+```bash
+which cmake-format   # Linux/macOS
+where cmake-format   # Windows
+```
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1 - 2025-08-18
 
-### 1.0.0
+- Initial release
+- Supports formatting `.cmake` and `CMakeLists.txt` files
+- Includes manual formatting and format-on-save toggle
+- Configurable settings for executable path and version
 
-Initial release of ...
+## License
 
-### 1.0.1
+MIT
 
-Fixed issue #.
+## Contributing
 
-### 1.1.0
+Feel free to open issues or pull requests to improve the extension. Bug fixes, feature suggestions, and documentation updates are welcome.
 
-Added features X, Y, and Z.
+## Resources
 
----
+- [GitHub Repository](https://github.com/sameermahant/vsce-cmake-format)
 
-## Following extension guidelines
+## Acknowledgments
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension was developed with assistance from [Microsoft Copilot](https://copilot.microsoft.com), an AI companion that supported code generation, refactoring, and documentation.

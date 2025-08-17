@@ -10,6 +10,7 @@ dist/
 
 # VS Code workspace settings
 .vscode/
+.vscode-test/
 
 # Logs
 *.log

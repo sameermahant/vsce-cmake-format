@@ -1,9 +1,11 @@
 # Change Log
 
-All notable changes to the "vsce-cmake-format" extension will be documented in this file.
+All notable changes to the "cmake-format" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [0.0.1] - 2025-08-18
 
-## [Unreleased]
-
+### Added
 - Initial release
+- Supports formatting `.cmake` and `CMakeLists.txt` files
+- Includes manual formatting and format-on-save toggle
+- Configurable settings for executable path and version

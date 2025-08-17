@@ -1,23 +1,100 @@
 {
-  "name": "vsce-cmake-format",
-  "displayName": "vsce-cmake-format",
-  "description": "",
+  "name": "cmake-format",
+  "displayName": "cmake-format",
+  "description": "Visual Studio Code extension that formats CMake files using cmake-format, installed via Python's pip. Developed with help from Microsoft Copilot.",
   "version": "0.0.1",
+  "publisher": "intellect-ind-in",
+  "author": "Sameer Mahant",
+  "homepage": "https://github.com/sameermahant/vsce-cmake-format",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sameermahant/vsce-cmake-format"
+  },
+  "bugs": {
+    "url": "https://github.com/sameermahant/vsce-cmake-format/issues"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.103.0"
   },
   "categories": [
-    "Other"
+    "Formatters",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "cmake-format",
+    "cmake-tools",
+    "cmake",
+    "code style",
+    "format",
+    "formatter"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "vsce-cmake-format.helloWorld",
-        "title": "Hello World"
+        "command": "cmake-format.applyCmakeFormat",
+        "title": "Apply cmake-format"
+      },
+      {
+        "command": "cmake-format.toggleFormatOnSave",
+        "title": "Toggle cmake-format Format on Save"
       }
-    ]
+    ],
+    "languages": [
+      {
+        "id": "cmake",
+        "extensions": [
+          ".cmake",
+          ".txt"
+        ],
+        "aliases": [
+          "CMake",
+          "CMakeLists"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "intellect-ind-in > cmake-format",
+      "properties": {
+        "intellect-ind-in.cmake-format.executablePath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the cmake-format executable installed via pip."
+        },
+        "intellect-ind-in.cmake-format.arguments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Additional command-line arguments to pass to cmake-format."
+        },
+        "intellect-ind-in.cmake-format.neededVersion": {
+          "type": "string",
+          "default": "1.0.0",
+          "description": "Required cmake-format version."
+        },
+        "intellect-ind-in.cmake-format.formatOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically apply cmake-format when saving CMake files."
+        },
+        "intellect-ind-in.cmake-format.logLevel": {
+          "type": "string",
+          "default": "info",
+          "enum": [
+            "error",
+            "warn",
+            "info"
+          ],
+          "description": "Controls verbosity of extension logs."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
