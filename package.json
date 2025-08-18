@@ -2,9 +2,10 @@
   "name": "cmake-formatter",
   "displayName": "cmake-formatter",
   "description": "Visual Studio Code extension that formats CMake files using cmake-format, installed via Python's pip. Developed with help from Microsoft Copilot.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "intellect-ind-in",
   "author": "Sameer Mahant",
+  "icon": "assets/cmake-formatter-logo.png",
   "homepage": "https://github.com/sameermahant/vsce-cmake-format",
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "format",
     "formatter"
   ],
+  "changelog": "CHANGELOG.md",
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {

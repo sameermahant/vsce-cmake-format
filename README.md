@@ -54,12 +54,10 @@ where cmake-format   # Windows
 
 ## Release Notes
 
-### 0.0.1 - 2025-08-18
+### 0.0.2 - 2025-08-19
 
-- Initial release
-- Supports formatting `.cmake` and `CMakeLists.txt` files
-- Includes manual formatting and format-on-save toggle
-- Configurable settings for executable path and version
+- Added an icon for the extension to improve visibility in the VSCode marketplace and editor
+- Fixed an issue where no error was shown if `cmake-formatter.executablePath` was not set
 
 ## License
 

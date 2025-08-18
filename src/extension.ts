@@ -45,7 +45,7 @@ function log(message: string, level: 'info' | 'warn' | 'error' = 'info') {
     }
 }
 
-function validateExecutablePath(executablePath: string): boolean {
+function validateExecutablePath(executablePath: string | null | undefined): boolean {
     if (!executablePath || !fs.existsSync(executablePath)) {
         vscode.window.showErrorMessage(`Invalid cmake-format path: "${executablePath}". Please check your settings.`);
         return false;
@@ -106,13 +106,13 @@ async function formatDocument(doc: vscode.TextDocument, saveAfter: boolean): Pro
         const config = getConfig();
         const { executablePath, arguments: args, neededVersion } = config;
 
-        if (!executablePath || !validateExecutablePath(executablePath)) {
+        if (!validateExecutablePath(executablePath)) {
             return;
         }
 
-        await checkVersionMismatch(executablePath, neededVersion);
+        await checkVersionMismatch(executablePath!, neededVersion);
 
-        const formatted = await runCMakeFormat(doc, args, executablePath);
+        const formatted = await runCMakeFormat(doc, args, executablePath!);
         const editor = await vscode.window.showTextDocument(doc);
         await editor.edit(editBuilder => {
             editBuilder.replace(getFullDocumentRange(doc), formatted);
@@ -165,12 +165,12 @@ export function activate(context: vscode.ExtensionContext) {
                     const config = getConfig();
                     const { executablePath, arguments: args } = config;
 
-                    if (!executablePath || !validateExecutablePath(executablePath)) {
+                    if (!validateExecutablePath(executablePath)) {
                         return [];
                     }
 
                     try {
-                        const { stdout } = await execFileAsync(executablePath, [...args, document.fileName]);
+                        const { stdout } = await execFileAsync(executablePath!, [...args, document.fileName]);
                         return [vscode.TextEdit.replace(getFullDocumentRange(document), stdout)];
                     } catch (error: any) {
                         vscode.window.showErrorMessage(`cmake-format error: ${error.stderr || error.message}`);
@@ -192,7 +192,7 @@ export function activate(context: vscode.ExtensionContext) {
         const config = getConfig();
         const { formatOnSave, executablePath } = config;
 
-        if (!formatOnSave || !isCMakeFile(doc.fileName) || !executablePath || !validateExecutablePath(executablePath)) {
+        if (!formatOnSave || !isCMakeFile(doc.fileName) || !validateExecutablePath(executablePath)) {
             return;
         }
 
